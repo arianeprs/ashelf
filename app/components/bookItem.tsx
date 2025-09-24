@@ -2,7 +2,7 @@ import { Book } from '../data/book';
 
 export default function BookItem(book: Book) {
   return (
-    <div className={`bg-stone-100 rounded-md p-4 w-[300px] ${book.loanedTo && 'opacity-65'}`}>
+    <div className={`bg-stone-100 rounded-md p-4 ${book.loanedTo && 'opacity-65'}`}>
       <div className="flex flex-col gap-2">
         <div className="flex flex-col items-start gap-1 w-full">
           <h1 className="text-2xl font-bold">{book.title}</h1>
