@@ -5,7 +5,7 @@ export type Book = {
   description: string;
   status: BookStatus;
   finishedAt?: Date;
-  recommendedFrom?: string;
+  recommendedBy?: string;
   loanedTo?: string;
 }
 
