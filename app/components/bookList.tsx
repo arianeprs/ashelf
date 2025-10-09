@@ -5,28 +5,53 @@ import { Book } from '../data/book';
 import { getApiBooks } from '../routes/book.routes';
 import BookItem from './bookItem';
 import EmptyList from './emptyList';
+import FinishedBooksList from './finishedBooksList';
 
-export default function BookList({ selectedTab }: { selectedTab: string }) {
-  const [books, setBooks] = useState<Book[]>([]);
+export default function BookList({ selectedTab }: { selectedTab: 'Finished' | 'Wishlist' }) {
+  const [wishBooks, setWishBooks] = useState<Book[]>([]);
+  const [finishedBooks, setFinishedBooks] = useState<Book[]>([]);
+  const hasWishBooksToShow = !!wishBooks && wishBooks.length > 0;
+  const hasFinishedBooksToShow = !!finishedBooks && finishedBooks.length > 0;
 
+  /* Load books once */
   useEffect(() => {
+    const getBooks = async () => {
+      getApiBooks('Finished').then((result) => {
+        if (!ignore) {
+          setFinishedBooks(result);
+        }
+      });
+
+      getApiBooks('Wishlist').then((result) => {
+        if (!ignore) {
+          setWishBooks(result);
+        }
+      });
+    };
+
     let ignore = false;
-    (async () => {
-      const data = await getApiBooks(selectedTab);
-      if (!ignore) setBooks(data);
-    })();
+    getBooks();
+
     return () => {
       ignore = true;
     };
-  }, [selectedTab]);
+  });
 
   return (
     <div className="flex flex-col w-full grow items-stretch gap-2.5 mb-40">
-      {books && books.length > 0 ? (
-        books.map((book) => <BookItem key={book.id} {...book} />)
-      ) : (
-        <EmptyList />
-      )}
+      {selectedTab === 'Finished' &&
+        (hasFinishedBooksToShow ? (
+          <FinishedBooksList finishedBooks={finishedBooks} />
+        ) : (
+          <EmptyList />
+        ))}
+
+      {selectedTab === 'Wishlist' &&
+        (hasWishBooksToShow ? (
+          wishBooks.map((book) => <BookItem key={book.id} {...book} />)
+        ) : (
+          <EmptyList />
+        ))}
     </div>
   );
 }
