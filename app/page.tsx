@@ -7,7 +7,7 @@ import AddBookButton from './components/addBookButton';
 import Header from './components/header';
 
 export default function Home() {
-  const TABS = ['Finished', 'Wishlist', 'Loaned'];
+  const TABS: ('Finished' | 'Wishlist')[] = ['Finished', 'Wishlist'];
 
   const [selectedTab, setSelected] = useState(TABS[0]);
 

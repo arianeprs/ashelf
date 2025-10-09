@@ -3,9 +3,8 @@ export type Book = {
   title: string;
   author: string;
   status: BookStatus;
-  finishedAt?: Date;
+  finishedOn: string /* 'YYYY-MM-DD' */;
   recommendedBy?: string;
-  loanedTo?: string;
 };
 
-export type BookStatus = 'finished' | 'wishlist' | 'reading' | 'loaned';
+export type BookStatus = 'finished' | 'wishlist';

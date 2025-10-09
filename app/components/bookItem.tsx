@@ -9,11 +9,6 @@ export default function BookItem(book: Book) {
           <div className="col-span-4 text-sm text-gray-600">{book.author}</div>
 
           <div className="col-span-2 flex justify-end items-center">
-            {book.loanedTo && (
-              <div className="px-1.5 py-0.5 rounded-md bg-slate-600 text-white text-xs">
-                <div>Loaned to {book.loanedTo}</div>
-              </div>
-            )}
             {book.recommendedBy && (
               <div className="px-1.5 py-0.5 rounded-md bg-slate-600 text-white text-xs">
                 Reco from {book.recommendedBy}
