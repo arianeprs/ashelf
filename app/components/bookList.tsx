@@ -21,7 +21,7 @@ export default function BookList({ selectedTab }: { selectedTab: string }) {
   }, [selectedTab]);
 
   return (
-    <div className="flex flex-col w-full grow items-stretch gap-2">
+    <div className="flex flex-col w-full grow items-stretch gap-2.5 mb-40">
       {books && books.length > 0 ? (
         books.map((book) => <BookItem key={book.id} {...book} />)
       ) : (

@@ -1,12 +1,11 @@
 export type Book = {
-  id: string;  
-  title: string
-  author: string
-  description: string;
+  id: string;
+  title: string;
+  author: string;
   status: BookStatus;
   finishedAt?: Date;
   recommendedBy?: string;
   loanedTo?: string;
-}
+};
 
-export type BookStatus = "finished" | "wishlist" | "reading" | "loaned";
+export type BookStatus = 'finished' | 'wishlist' | 'reading' | 'loaned';
