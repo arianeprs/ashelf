@@ -134,7 +134,7 @@ const BOOKS_PLACEHOLDERS_LOANED = [
     author: 'Random author',
     description: 'Random desc',
     status: 'finished',
-    loanedTo: 'Baltro',
+    loanedTo: 'Balt',
   } as Book,
 ];
 
