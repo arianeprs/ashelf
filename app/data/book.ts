@@ -7,4 +7,4 @@ export type Book = {
   recommendedBy?: string;
 };
 
-export type BookStatus = 'finished' | 'wishlist';
+export type BookStatus = 'Finished' | 'Wishlist';

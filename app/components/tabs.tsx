@@ -1,4 +1,10 @@
-type TabsProps = { selectedTab: string; TABS: string[]; handleClickTab: (index: number) => void };
+import { BookStatus } from '../data/book';
+
+type TabsProps = {
+  selectedTab: BookStatus;
+  TABS: string[];
+  handleClickTab: (index: number) => void;
+};
 
 export default function Tabs({ selectedTab, TABS, handleClickTab }: TabsProps) {
   return (

@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import AddBookModal from './addBookModal';
 import { PlusIcon } from '@heroicons/react/24/solid';
+import { BookStatus } from '../data/book';
 
-export default function AddBookButton() {
+export default function AddBookButton({ selectedTab }: { selectedTab: BookStatus }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handleClickButton(isOpen: boolean) {
@@ -20,7 +21,9 @@ export default function AddBookButton() {
         </button>
       </div>
 
-      {isModalOpen && <AddBookModal handleClickButton={handleClickButton} />}
+      {isModalOpen && (
+        <AddBookModal selectedTab={selectedTab} handleClickButton={handleClickButton} />
+      )}
     </div>
   );
 }

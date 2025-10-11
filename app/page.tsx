@@ -5,9 +5,10 @@ import Tabs from './components/tabs';
 import BookList from './components/bookList';
 import AddBookButton from './components/addBookButton';
 import Header from './components/header';
+import { BookStatus } from './data/book';
 
 export default function Home() {
-  const TABS: ('Finished' | 'Wishlist')[] = ['Finished', 'Wishlist'];
+  const TABS: BookStatus[] = ['Finished', 'Wishlist'];
 
   const [selectedTab, setSelected] = useState(TABS[0]);
 
@@ -20,7 +21,7 @@ export default function Home() {
       <Header />
       <Tabs selectedTab={selectedTab} TABS={TABS} handleClickTab={handleClickTab} />
       <BookList selectedTab={selectedTab} />
-      <AddBookButton />
+      <AddBookButton selectedTab={selectedTab} />
     </div>
   );
 }

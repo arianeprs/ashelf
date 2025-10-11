@@ -1,13 +1,13 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import { Book } from '../data/book';
+import { Book, BookStatus } from '../data/book';
 import { getApiBooks } from '../routes/book.routes';
 import BookItem from './bookItem';
 import EmptyList from './emptyList';
 import FinishedBooksList from './finishedBooksList';
 
-export default function BookList({ selectedTab }: { selectedTab: 'Finished' | 'Wishlist' }) {
+export default function BookList({ selectedTab }: { selectedTab: BookStatus }) {
   const [wishBooks, setWishBooks] = useState<Book[]>([]);
   const [finishedBooks, setFinishedBooks] = useState<Book[]>([]);
   const hasWishBooksToShow = !!wishBooks && wishBooks.length > 0;
