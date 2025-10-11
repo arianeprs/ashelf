@@ -103,7 +103,15 @@ const BOOKS_PLACEHOLDERS_WISHLIST = [
   } as Book,
 ];
 
-export async function getApiBooks(selectedTab: string) {
+export async function addBookToList(selectedTab: BookStatus, book: Book) {
+  // TODO TANGO: actually do something with it
+  if (selectedTab === 'Finished') {
+    BOOKS_PLACEHOLDERS_FINISHED.push(book);
+  } else if (selectedTab === 'Wishlist') {
+    BOOKS_PLACEHOLDERS_WISHLIST.push(book);
+  }
+}
+
 export async function getApiBooks(selectedTab: BookStatus) {
   // TODO TANGO - this will be calling an actual API one day
   if (selectedTab === 'Finished') return BOOKS_PLACEHOLDERS_FINISHED;
