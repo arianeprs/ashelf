@@ -6,10 +6,13 @@ import { getApiBooks } from '../routes/book.routes';
 import BookItem from './bookItem';
 import EmptyList from './emptyList';
 import FinishedBooksList from './finishedBooksList';
+import { useTab } from '../context/TabContext';
 
-export default function BookList({ selectedTab }: { selectedTab: BookStatus }) {
+export default function BookList() {
+  const selectedTab: BookStatus = useTab();
   const [wishBooks, setWishBooks] = useState<Book[]>([]);
   const [finishedBooks, setFinishedBooks] = useState<Book[]>([]);
+
   const hasWishBooksToShow = !!wishBooks && wishBooks.length > 0;
   const hasFinishedBooksToShow = !!finishedBooks && finishedBooks.length > 0;
 
@@ -48,7 +51,7 @@ export default function BookList({ selectedTab }: { selectedTab: BookStatus }) {
 
       {selectedTab === 'Wishlist' &&
         (hasWishBooksToShow ? (
-          wishBooks.map((book) => <BookItem key={book.id} {...book} />)
+          wishBooks.map((book) => <BookItem key={book.id} book={book} />)
         ) : (
           <EmptyList />
         ))}

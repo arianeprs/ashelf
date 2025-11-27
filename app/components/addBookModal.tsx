@@ -2,14 +2,14 @@
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { addBookToList } from '../routes/book.routes';
 import { Book, BookStatus } from '../data/book';
+import { useTab } from '../context/TabContext';
 
 export default function AddBookModal({
   handleClickButton,
-  selectedTab,
 }: {
   handleClickButton: (isOpen: boolean) => void;
-  selectedTab: BookStatus;
 }) {
+  const selectedTab: BookStatus = useTab();
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
     // Prevent the browser from reloading the page
     event.preventDefault();
@@ -94,7 +94,7 @@ export default function AddBookModal({
             <button
               type="submit"
               className="w-fit p-3 cursor-pointer rounded-md bg-stone-200 self-end">
-              Add to finished
+              Add to {selectedTab}
             </button>
           </div>
         </div>

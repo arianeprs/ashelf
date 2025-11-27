@@ -33,7 +33,7 @@ export default function FinishedBooksList({ finishedBooks }: { finishedBooks: Bo
             </div>
 
             {monthBookGroup[1].map((book) => (
-              <BookItem key={book.id} {...book} />
+              <BookItem key={book.id} book={book} />
             ))}
           </div>
         ))}

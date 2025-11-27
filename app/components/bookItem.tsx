@@ -1,6 +1,6 @@
 import { Book } from '../data/book';
 
-export default function BookItem(book: Book) {
+export default function BookItem({ book }: { book: Book }) {
   return (
     <div className="bg-stone-100 rounded-md p-4">
       <div className="flex flex-col gap-0.5">

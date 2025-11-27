@@ -2,26 +2,27 @@
 import { useState } from 'react';
 
 import Tabs from './components/tabs';
+import { TabContext } from './context/TabContext.ts';
 import BookList from './components/bookList';
 import AddBookButton from './components/addBookButton';
 import Header from './components/header';
-import { BookStatus } from './data/book';
+import { BookStatus } from './data/book.ts';
 
 export default function Home() {
-  const TABS: BookStatus[] = ['Finished', 'Wishlist'];
+  const [selectedTab, setSelected] = useState<BookStatus>('Finished');
 
-  const [selectedTab, setSelected] = useState(TABS[0]);
-
-  function handleClickTab(index: number) {
-    setSelected(TABS[index]);
+  function onTabClick(tab: BookStatus) {
+    setSelected(tab);
   }
 
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <Tabs selectedTab={selectedTab} TABS={TABS} handleClickTab={handleClickTab} />
-      <BookList selectedTab={selectedTab} />
-      <AddBookButton selectedTab={selectedTab} />
+      <TabContext value={selectedTab}>
+        <Tabs onTabClick={onTabClick} />
+        <BookList />
+        <AddBookButton />
+      </TabContext>
     </div>
   );
 }
