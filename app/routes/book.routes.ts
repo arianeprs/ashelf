@@ -1,6 +1,6 @@
 import { Book, BookStatus } from '../data/book';
 
-const BOOKS_PLACEHOLDERS_FINISHED = [
+let BOOKS_PLACEHOLDERS_FINISHED = [
   {
     id: '01',
     title: 'Finished book',
@@ -13,13 +13,6 @@ const BOOKS_PLACEHOLDERS_FINISHED = [
     id: '02',
     title: 'The vanishing half',
     author: 'Brit Bennet',
-    finishedOn: '2025-06-01',
-    status: 'Finished',
-  } as Book,
-  {
-    id: '03',
-    title: 'J’irai cracher sur vos tombes',
-    author: 'Boris Vian',
     finishedOn: '2025-06-01',
     status: 'Finished',
   } as Book,
@@ -37,57 +30,96 @@ const BOOKS_PLACEHOLDERS_FINISHED = [
     finishedOn: '2025-01-01',
     status: 'Finished',
   } as Book,
-  {
-    id: '13',
-    title: 'Lalala lala',
-    author: 'Random author',
-    finishedOn: '2025-01-01',
-    status: 'Finished',
-  } as Book,
-  {
-    id: '21',
-    title: 'Last one',
-    author: 'Random author',
-    finishedOn: '2025-01-01',
-    status: 'Finished',
-  } as Book,
-  {
-    id: '22',
-    title: 'Lalala lala',
-    author: 'Random author',
-    finishedOn: '2025-01-01',
-    status: 'Finished',
-  } as Book,
-  {
-    id: '23',
-    title: 'Last one',
-    author: 'Random author',
-    finishedOn: '2025-01-01',
-    status: 'Finished',
-  } as Book,
-  {
-    id: '31',
-    title: 'Lalala lala',
-    author: 'Random author',
-    finishedOn: '2025-01-01',
-    status: 'Finished',
-  } as Book,
-  {
-    id: '32',
-    title: 'Last one',
-    author: 'Random author',
-    finishedOn: '2025-01-01',
-    status: 'Finished',
-  } as Book,
-  {
-    id: '33',
-    title: 'Lalala lala',
-    author: 'Random author',
-    finishedOn: '2025-01-01',
-    status: 'Finished',
-  } as Book,
 ];
-const BOOKS_PLACEHOLDERS_WISHLIST = [
+
+// const BOOKS_PLACEHOLDERS_FINISHED = [
+//   {
+//     id: '01',
+//     title: 'Finished book',
+//     author: 'Random author',
+//     finishedOn: '2025-10-01',
+//     status: 'Finished',
+//     recommendedBy: 'Baltro',
+//   } as Book,
+//   {
+//     id: '02',
+//     title: 'The vanishing half',
+//     author: 'Brit Bennet',
+//     finishedOn: '2025-06-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '03',
+//     title: 'J’irai cracher sur vos tombes',
+//     author: 'Boris Vian',
+//     finishedOn: '2025-06-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '11',
+//     title: 'Trois femmes puissantes',
+//     author: 'Marie Ndaye',
+//     finishedOn: '2025-05-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '12',
+//     title: 'Last one',
+//     author: 'Random author',
+//     finishedOn: '2025-01-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '13',
+//     title: 'Lalala lala',
+//     author: 'Random author',
+//     finishedOn: '2025-01-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '21',
+//     title: 'Last one',
+//     author: 'Random author',
+//     finishedOn: '2025-01-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '22',
+//     title: 'Lalala lala',
+//     author: 'Random author',
+//     finishedOn: '2025-01-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '23',
+//     title: 'Last one',
+//     author: 'Random author',
+//     finishedOn: '2025-01-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '31',
+//     title: 'Lalala lala',
+//     author: 'Random author',
+//     finishedOn: '2025-01-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '32',
+//     title: 'Last one',
+//     author: 'Random author',
+//     finishedOn: '2025-01-01',
+//     status: 'Finished',
+//   } as Book,
+//   {
+//     id: '33',
+//     title: 'Lalala lala',
+//     author: 'Random author',
+//     finishedOn: '2025-01-01',
+//     status: 'Finished',
+//   } as Book,
+// ];
+let BOOKS_PLACEHOLDERS_WISHLIST = [
   {
     id: '1',
     title: 'Wishlist book',
@@ -106,9 +138,10 @@ const BOOKS_PLACEHOLDERS_WISHLIST = [
 export async function addBookToList(selectedTab: BookStatus, book: Book) {
   // TODO TANGO: actually do something with it
   if (selectedTab === 'Finished') {
-    BOOKS_PLACEHOLDERS_FINISHED.push(book);
+    // TODO TANGO : call API, then this... from somewhere else
+    BOOKS_PLACEHOLDERS_FINISHED = [...BOOKS_PLACEHOLDERS_FINISHED, book];
   } else if (selectedTab === 'Wishlist') {
-    BOOKS_PLACEHOLDERS_WISHLIST.push(book);
+    BOOKS_PLACEHOLDERS_WISHLIST = [...BOOKS_PLACEHOLDERS_WISHLIST, book];
   }
 }
 

@@ -6,8 +6,10 @@ import { useTab } from '../context/TabContext';
 
 export default function AddBookModal({
   handleClickButton,
+  onBookAdded,
 }: {
   handleClickButton: (isOpen: boolean) => void;
+  onBookAdded: (selectedTab: BookStatus) => void;
 }) {
   const selectedTab: BookStatus = useTab();
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
@@ -23,14 +25,17 @@ export default function AddBookModal({
 
     // Make up a new book on the go
     const newBook: Book = {
-      id: '000001', // TODO TANGO
+      id: String(Math.random()), // TODO TANGO
       title: String(formJson.title),
       author: String(formJson.author),
       status: selectedTab,
       finishedOn: '2025-03-15', // TODO TANGO - fix input for month/year
     };
 
-    addBookToList(selectedTab, newBook).then(() => handleClickButton(false));
+    addBookToList(selectedTab, newBook).then(() => {
+      handleClickButton(false);
+      onBookAdded(selectedTab); // TODO TANGO - not sure this is here?
+    });
   }
 
   return (
@@ -91,6 +96,7 @@ export default function AddBookModal({
               </div>
             </div>
 
+            {/* TODO TANGO : pressing enter should press the submit button */}
             <button
               type="submit"
               className="w-fit p-3 cursor-pointer rounded-md bg-stone-200 self-end">
