@@ -1,6 +1,7 @@
+import { BooksContextT } from '../context/BooksContext';
 import { Book, BookStatus } from '../data/book';
 
-let BOOKS_PLACEHOLDERS_FINISHED = [
+const BOOKS_PLACEHOLDERS_FINISHED = [
   {
     id: '01',
     title: 'Finished book',
@@ -119,7 +120,7 @@ let BOOKS_PLACEHOLDERS_FINISHED = [
 //     status: 'Finished',
 //   } as Book,
 // ];
-let BOOKS_PLACEHOLDERS_WISHLIST = [
+const BOOKS_PLACEHOLDERS_WISHLIST = [
   {
     id: '1',
     title: 'Wishlist book',
@@ -135,18 +136,23 @@ let BOOKS_PLACEHOLDERS_WISHLIST = [
   } as Book,
 ];
 
-export async function addBookToList(selectedTab: BookStatus, book: Book) {
+export async function addBookToList(selectedTab: BookStatus, book: Book): Promise<Book[]> {
   // TODO TANGO: actually do something with it
   if (selectedTab === 'Finished') {
     // TODO TANGO : call API, then this... from somewhere else
-    BOOKS_PLACEHOLDERS_FINISHED = [...BOOKS_PLACEHOLDERS_FINISHED, book];
+    const fakeApiResult = [...BOOKS_PLACEHOLDERS_FINISHED, book];
+    return fakeApiResult;
   } else if (selectedTab === 'Wishlist') {
-    BOOKS_PLACEHOLDERS_WISHLIST = [...BOOKS_PLACEHOLDERS_WISHLIST, book];
+    const fakeApiResult = [...BOOKS_PLACEHOLDERS_WISHLIST, book];
+    return fakeApiResult;
   }
+  return [];
 }
 
-export async function getApiBooks(selectedTab: BookStatus) {
+export async function getApiBooks(): Promise<BooksContextT> {
   // TODO TANGO - this will be calling an actual API one day
-  if (selectedTab === 'Finished') return BOOKS_PLACEHOLDERS_FINISHED;
-  return BOOKS_PLACEHOLDERS_WISHLIST;
+  return {
+    wishlistBooks: BOOKS_PLACEHOLDERS_WISHLIST,
+    finishedBooks: BOOKS_PLACEHOLDERS_FINISHED,
+  };
 }

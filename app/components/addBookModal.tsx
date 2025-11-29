@@ -5,16 +5,15 @@ import { Book, BookStatus } from '../data/book';
 import { useTab } from '../context/TabContext';
 
 export default function AddBookModal({
-  handleClickButton,
+  onModalClosed,
   onBookAdded,
 }: {
-  handleClickButton: (isOpen: boolean) => void;
-  onBookAdded: (selectedTab: BookStatus) => void;
+  onModalClosed: () => void;
+  onBookAdded: (newBook: Book) => void;
 }) {
   const selectedTab: BookStatus = useTab();
   function handleSubmit(event: React.ChangeEvent<HTMLFormElement>) {
-    // Prevent the browser from reloading the page
-    event.preventDefault();
+    event.preventDefault(); // Prevent the browser from reloading the page
 
     // Read the form data
     const form = event.target;
@@ -33,8 +32,9 @@ export default function AddBookModal({
     };
 
     addBookToList(selectedTab, newBook).then(() => {
-      handleClickButton(false);
-      onBookAdded(selectedTab); // TODO TANGO - not sure this is here?
+      onModalClosed();
+      onBookAdded(newBook);
+      // TODO TANGO 1: if success, dispatch, if error, handle it
     });
   }
 
@@ -45,7 +45,7 @@ export default function AddBookModal({
           <div className="flex flex-col gap-4 justify-stretch">
             <button
               className="w-fit p-1 cursor-pointer rounded-md bg-stone-100 self-end "
-              onClick={() => handleClickButton(false)}>
+              onClick={() => onModalClosed()}>
               <XMarkIcon className="size-5 text-slate-700" />
             </button>
 
@@ -106,7 +106,7 @@ export default function AddBookModal({
         </div>
         <div
           className="bg-neutral-700 fixed z-[1054] left-0 top-0 opacity-40 w-screen h-screen"
-          onClick={() => handleClickButton(false)}></div>
+          onClick={() => onModalClosed()}></div>
       </form>
     </div>
   );
