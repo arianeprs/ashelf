@@ -32,9 +32,11 @@ export default function FinishedBooksList({ finishedBooks }: { finishedBooks: Bo
               {getFormattedDate(monthBookGroup[0])}
             </div>
 
-            {monthBookGroup[1].map((book) => (
-              <BookItem key={book.id} book={book} />
-            ))}
+            <div className="grid md:grid-cols-2 gap-2">
+              {monthBookGroup[1].map((book) => (
+                <BookItem key={book.id} book={book} />
+              ))}
+            </div>
           </div>
         ))}
     </div>

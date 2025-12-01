@@ -10,7 +10,7 @@ export default function AddBookButton({ onBookAdded }: { onBookAdded: (newBook: 
   const selectedTab = useTab();
 
   return (
-    <div className="-mx-4 w-full md:w-[500px] fixed bg-gradient-to-t from-white to-white/10 bottom-0">
+    <div className="-mx-4 w-full md:w-4xl fixed bg-gradient-to-t from-soft-beige to--soft-beige/10 bottom-0">
       <div className="flex justify-end">
         <button
           className={`mb-10 mr-8 self-end font-mono p-3 cursor-pointer rounded-full ${selectedTab === 'Finished' ? 'bg-indigo-300' : 'bg-lime-300'}`}

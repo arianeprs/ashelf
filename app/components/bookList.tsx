@@ -27,7 +27,11 @@ export default function BookList({
 
       {selectedTab === 'Wishlist' &&
         (hasWishBooksToShow ? (
-          wishBooks.map((book) => <BookItem key={book.id} book={book} />)
+          <div className="grid md:grid-cols-2 gap-2">
+            {wishBooks.map((book) => (
+              <BookItem key={book.id} book={book} />
+            ))}
+          </div>
         ) : (
           <EmptyList />
         ))}

@@ -58,10 +58,10 @@ export default function AddBookModal({
   return (
     <div>
       <form method="post" onSubmit={handleSubmit}>
-        <div className="fixed top-0 bottom-0 z-[1055] block h-screen w-full md:w-[500px] overflow-y-auto overflow-x-hidden outline-none p-4 bg-white border-1 border-slate-200 m:rounded-md">
+        <div className="fixed top-0 bottom-0 z-[1055] block h-screen w-full md:w-4xl overflow-y-auto overflow-x-hidden outline-none p-4 bg-white border-1 border-slate-200 m:rounded-lg">
           <div className="flex flex-col gap-4 justify-stretch">
             <button
-              className="w-fit p-1 cursor-pointer rounded-md bg-stone-100 self-end "
+              className="w-fit p-1 cursor-pointer rounded-lg bg-stone-100 self-end "
               onClick={() => onModalClosed()}>
               <XMarkIcon className="size-5 text-slate-700" />
             </button>
@@ -69,7 +69,7 @@ export default function AddBookModal({
             <div className="flex flex-col gap-0.5">
               <label htmlFor="title">Title</label>
               <input
-                className="w-full px-2 py-1.5 border border-slate-400 rounded-md"
+                className="w-full px-2 py-1.5 border border-slate-400 rounded-lg"
                 type="text"
                 id="title"
                 name="title"
@@ -80,7 +80,7 @@ export default function AddBookModal({
             <div className="flex flex-col gap-0.5">
               <label htmlFor="author">Author</label>
               <input
-                className="w-full px-2 py-1.5 border border-slate-400 rounded-md"
+                className="w-full px-2 py-1.5 border border-slate-400 rounded-lg"
                 type="text"
                 id="author"
                 name="author"
@@ -93,7 +93,7 @@ export default function AddBookModal({
                 <div className="flex flex-col gap-0.5 grow">
                   <label htmlFor="month">Month</label>
                   <select
-                    className="w-full px-2 py-1.5 border border-slate-400 rounded-md"
+                    className="w-full px-2 py-1.5 border border-slate-400 rounded-lg"
                     id="month"
                     name="month"
                     defaultValue={currentMonth}
@@ -108,7 +108,7 @@ export default function AddBookModal({
                 <div className="flex flex-col gap-0.5 grow">
                   <label htmlFor="year">Year</label>
                   <input
-                    className="w-full px-2 py-1.5 border border-slate-400 rounded-md"
+                    className="w-full px-2 py-1.5 border border-slate-400 rounded-lg"
                     type="text"
                     id="year"
                     name="year"
@@ -122,7 +122,7 @@ export default function AddBookModal({
             {/* TODO TANGO : pressing enter should press the submit button */}
             <button
               type="submit"
-              className="w-fit p-3 cursor-pointer rounded-md bg-stone-200 self-end">
+              className="w-fit p-3 cursor-pointer rounded-lg bg-stone-200 self-end">
               Add to {selectedTab}
             </button>
           </div>

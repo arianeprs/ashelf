@@ -23,10 +23,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="min-h-full bg-soft-beige">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="bg-neutral-100 flex">
-          <div className="m-auto w-full md:w-[500px] bg-white px-4 py-2">{children}</div>
+        <div className="flex bg-soft-beige">
+          <div className="m-auto w-full md:w-4xl px-4 py-2">{children}</div>
         </div>
       </body>
     </html>
