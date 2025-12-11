@@ -4,11 +4,11 @@ import { Book, BookStatus } from '../data/book';
 const BOOKS_PLACEHOLDERS_FINISHED = [
   {
     id: '01',
-    title: 'Finished book',
-    author: 'Random author',
+    title: 'The Stranger',
+    author: 'Albert Camus',
     finishedOn: '2025-10-01',
     status: 'Finished',
-    recommendedBy: 'Baltro',
+    recommendedBy: 'Sara',
   } as Book,
   {
     id: '02',
@@ -19,15 +19,15 @@ const BOOKS_PLACEHOLDERS_FINISHED = [
   } as Book,
   {
     id: '11',
-    title: 'Trois femmes puissantes',
-    author: 'Marie Ndaye',
+    title: 'Blue Sisters',
+    author: 'Coco Mellors',
     finishedOn: '2025-05-01',
     status: 'Finished',
   } as Book,
   {
     id: '12',
-    title: 'Last one',
-    author: 'Random author',
+    title: 'La faille',
+    author: 'Antonis Samarakis',
     finishedOn: '2025-01-01',
     status: 'Finished',
   } as Book,
@@ -124,15 +124,33 @@ const BOOKS_PLACEHOLDERS_WISHLIST = [
   {
     id: '1',
     title: 'Wishlist book',
-    author: 'Random author',
+    author: 'Author name',
     status: 'Wishlist',
   } as Book,
   {
     id: '2',
-    title: 'Lalala lala',
-    author: 'Random author',
+    title: 'Another wishlist book',
+    author: 'Author name',
     status: 'Wishlist',
-    recommendedBy: 'Baltro',
+  } as Book,
+  {
+    id: '6',
+    title: 'Jane Eyre',
+    author: 'Charlotte Brontë',
+    status: 'Wishlist',
+  } as Book,
+  {
+    id: '3',
+    title: '1984',
+    author: 'George Orwell',
+    status: 'Wishlist',
+    recommendedBy: 'Albert',
+  } as Book,
+  {
+    id: '21',
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    status: 'Wishlist',
   } as Book,
 ];
 

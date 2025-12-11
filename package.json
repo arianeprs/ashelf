@@ -1,6 +1,7 @@
 {
   "name": "ashelf",
   "version": "0.1.0",
+  "homepage": "https://arianeprs.github.io/ashelf",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
