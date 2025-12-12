@@ -58,10 +58,10 @@ export default function AddBookModal({
   return (
     <div>
       <form method="post" onSubmit={handleSubmit}>
-        <div className="fixed top-0 bottom-0 z-[1055] block h-screen w-full md:w-[500px] overflow-y-auto overflow-x-hidden outline-none p-4 bg-white border-1 border-slate-200 m:rounded-md">
+        <div className="fixed top-0 bottom-0 z-[1055] block h-screen w-full md:w-[500px] overflow-y-auto overflow-x-hidden outline-none p-4 bg-white dark:bg-slate-800 border-1 border-slate-200 m:rounded-md">
           <div className="flex flex-col gap-4 justify-stretch">
             <button
-              className="w-fit p-1 cursor-pointer rounded-md bg-stone-100 self-end "
+              className="w-fit p-1 cursor-pointer rounded-md bg-stone-100 dark:bg-slate-800 self-end "
               onClick={() => onModalClosed()}>
               <XMarkIcon className="size-5 text-slate-700" />
             </button>

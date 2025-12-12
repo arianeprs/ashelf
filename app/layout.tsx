@@ -25,8 +25,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="bg-neutral-100 flex">
-          <div className="m-auto w-full md:w-[500px] bg-white px-4 py-2">{children}</div>
+        <div className="bg-neutral-100 dark:bg-slate-900 flex">
+          <div className="m-auto w-full md:w-[500px] bg-white dark:bg-slate-800 px-4 py-2">
+            {children}
+          </div>
         </div>
       </body>
     </html>
